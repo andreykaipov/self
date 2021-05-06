@@ -39,8 +39,14 @@ jobs:
       id: build
       run: |
         ./scripts/resume.build.sh
-        mv resume.pdf site/static
-        echo "::set-output name=msg::${{ env.commit_message_resume }}"
+        md5sum resume.pdf
+        mv resume.pdf resume2.pdf
+        ./scripts/resume.build.sh
+        md5sum resume.pdf
+        diff -y <(xxd resume.pdf) <(xxd resume2.pdf)
+
+        #mv resume.pdf site/static
+        #echo "::set-output name=msg::${{ env.commit_message_resume }}"
 
 #    - name: Push that bitch up
 #      id: push
