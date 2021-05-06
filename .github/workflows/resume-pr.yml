@@ -40,7 +40,7 @@ jobs:
       run: |
         ./scripts/resume.build.sh
         md5sum resume.pdf
-        mv resume.pdf resume2.pdf
+        mv resume.pdf resume3.pdf
         #./scripts/resume.build.sh
         #md5sum resume.pdf
         #diff resume.pdf resume2.pdf
