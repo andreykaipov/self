@@ -17,8 +17,9 @@ printf "\e[1;33m%s\e[0m\n" "Running in nix-shell or in CI"
 
 root="$(git rev-parse --show-toplevel)"
 cd "$root"
-git submodule update --init resume/moderncv
-cd resume/moderncv
-ln -sf ../resume.tex ../patches -t .
-tectonic resume.tex -o "$root"
-git clean -f
+#git submodule update --init resume/moderncv
+#cd resume/moderncv
+#ln -sf ../resume.tex ../patches -t .
+cd resume
+tectonic --only-cached resume.tex -o "$root"
+#git clean -f
